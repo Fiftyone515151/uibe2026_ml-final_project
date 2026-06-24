@@ -1,0 +1,275 @@
+{
+  "raw_profile": {
+    "train": {
+      "file": "Dry_Bean_Dataset_Dirty_train.csv",
+      "rows": 9527,
+      "raw_class_counts": {
+        "DERMASON": 2365,
+        "BARBUNYA": 898,
+        "HOROZ": 1270,
+        "BOMBAY": 344,
+        "SIRA": 1781,
+        "D3RMAS0N": 56,
+        "SEKER": 1343,
+        "CALI": 1120,
+        "barbunya": 18,
+        "CALI ": 15,
+        "bombay": 4,
+        "SEKER ": 13,
+        "sira": 37,
+        "S3K3R": 24,
+        "horoz": 32,
+        "DERMASON ": 21,
+        "cali": 16,
+        "HOROZ ": 14,
+        "SIRA ": 19,
+        "dermason": 61,
+        "BARBUNYA ": 11,
+        "B0MBAY": 12,
+        "H0R0Z": 24,
+        "seker": 28,
+        "BOMBAY ": 1
+      },
+      "missing_values": {
+        "Solidity": 272,
+        "Perimeter": 469
+      },
+      "invalid_numeric_values": {
+        "Compactness": 258,
+        "Solidity": 202
+      },
+      "negative_numeric_values": {}
+    },
+    "val": {
+      "file": "Dry_Bean_Dataset_Dirty_val.csv",
+      "rows": 1347,
+      "raw_class_counts": {
+        "HOROZ": 176,
+        "BARBUNYA": 118,
+        "DERMASON": 331,
+        "SEKER": 194,
+        "SIRA": 271,
+        "CALI": 150,
+        "BOMBAY": 46,
+        "DERMASON ": 4,
+        "S3K3R": 4,
+        "seker": 2,
+        "D3RMAS0N": 6,
+        "dermason": 11,
+        "cali": 4,
+        "BARBUNYA ": 2,
+        "sira": 8,
+        "H0R0Z": 5,
+        "B0MBAY": 1,
+        "barbunya": 4,
+        "horoz": 3,
+        "bombay": 2,
+        "SEKER ": 1,
+        "HOROZ ": 2,
+        "BOMBAY ": 1,
+        "SIRA ": 1
+      },
+      "missing_values": {
+        "Solidity": 41,
+        "Perimeter": 62
+      },
+      "invalid_numeric_values": {
+        "Solidity": 22,
+        "Compactness": 38
+      },
+      "negative_numeric_values": {
+        "Area": 11
+      }
+    },
+    "test": {
+      "file": "Dry_Bean_Dataset_Dirty_test.csv",
+      "rows": 2737,
+      "raw_class_counts": {
+        "BARBUNYA": 267,
+        "HOROZ": 376,
+        "SEKER": 403,
+        "S3K3R": 8,
+        "DERMASON": 658,
+        "SIRA": 498,
+        "CALI": 318,
+        "BOMBAY": 103,
+        "SIRA ": 9,
+        "H0R0Z": 11,
+        "D3RMAS0N": 15,
+        "horoz": 10,
+        "cali": 7,
+        "seker": 6,
+        "DERMASON ": 6,
+        "dermason": 12,
+        "HOROZ ": 5,
+        "sira": 12,
+        "barbunya": 3,
+        "BARBUNYA ": 1,
+        "B0MBAY": 5,
+        "BOMBAY ": 2,
+        "SEKER ": 1,
+        "bombay": 1
+      },
+      "missing_values": {
+        "Perimeter": 146,
+        "Solidity": 75
+      },
+      "invalid_numeric_values": {
+        "Compactness": 92,
+        "Solidity": 46
+      },
+      "negative_numeric_values": {
+        "Area": 19
+      }
+    }
+  },
+  "cleaning_rules": [
+    "strip whitespace from labels and column names",
+    "normalize class labels to seven canonical bean classes",
+    "convert feature columns to non-negative finite floats",
+    "treat missing, non-numeric, non-finite, and negative feature values as missing",
+    "remove duplicate rows from training split",
+    "impute missing feature values using training-set medians"
+  ],
+  "training_medians_used_for_imputation": {
+    "Area": 44568.0,
+    "Perimeter": 793.756,
+    "MajorAxisLength": 296.529186,
+    "MinorAxisLength": 192.462725,
+    "AspectRation": 1.551026,
+    "Eccentricity": 0.764407,
+    "ConvexArea": 45111.0,
+    "EquivDiameter": 238.213644,
+    "Extent": 0.759168,
+    "Solidity": 0.988272,
+    "roundness": 0.882966,
+    "Compactness": 0.801324,
+    "ShapeFactor1": 0.006647,
+    "ShapeFactor2": 0.001702,
+    "ShapeFactor3": 0.642129,
+    "ShapeFactor4": 0.996396
+  },
+  "cleaned_profile": {
+    "train": {
+      "rows_after_label_filter_and_duplicate_removal": 9503,
+      "dropped_unknown_label": 0,
+      "duplicates_removed": 24,
+      "label_changes": {
+        "D3RMAS0N -> DERMASON": 56,
+        "barbunya -> BARBUNYA": 18,
+        "bombay -> BOMBAY": 4,
+        "sira -> SIRA": 37,
+        "S3K3R -> SEKER": 24,
+        "horoz -> HOROZ": 32,
+        "cali -> CALI": 16,
+        "dermason -> DERMASON": 61,
+        "B0MBAY -> BOMBAY": 12,
+        "H0R0Z -> HOROZ": 24,
+        "seker -> SEKER": 28
+      },
+      "invalid_or_missing_feature_values_after_parsing": {
+        "Solidity": 474,
+        "Perimeter": 469,
+        "Compactness": 258
+      },
+      "output_file": "dry_bean_clean_train.csv",
+      "rows_final": 9503,
+      "class_counts_final": {
+        "BARBUNYA": 927,
+        "BOMBAY": 361,
+        "CALI": 1151,
+        "DERMASON": 2503,
+        "HOROZ": 1316,
+        "SEKER": 1408,
+        "SIRA": 1837
+      },
+      "imputed_values": {
+        "Solidity": 474,
+        "Perimeter": 469,
+        "Compactness": 258
+      }
+    },
+    "val": {
+      "rows_after_label_filter_and_duplicate_removal": 1347,
+      "dropped_unknown_label": 0,
+      "duplicates_removed": 0,
+      "label_changes": {
+        "S3K3R -> SEKER": 4,
+        "seker -> SEKER": 2,
+        "D3RMAS0N -> DERMASON": 6,
+        "dermason -> DERMASON": 11,
+        "cali -> CALI": 4,
+        "sira -> SIRA": 8,
+        "H0R0Z -> HOROZ": 5,
+        "B0MBAY -> BOMBAY": 1,
+        "barbunya -> BARBUNYA": 4,
+        "horoz -> HOROZ": 3,
+        "bombay -> BOMBAY": 2
+      },
+      "invalid_or_missing_feature_values_after_parsing": {
+        "Solidity": 63,
+        "Perimeter": 62,
+        "Area": 11,
+        "Compactness": 38
+      },
+      "output_file": "dry_bean_clean_val.csv",
+      "rows_final": 1347,
+      "class_counts_final": {
+        "BARBUNYA": 124,
+        "BOMBAY": 50,
+        "CALI": 154,
+        "DERMASON": 352,
+        "HOROZ": 186,
+        "SEKER": 201,
+        "SIRA": 280
+      },
+      "imputed_values": {
+        "Solidity": 63,
+        "Perimeter": 62,
+        "Area": 11,
+        "Compactness": 38
+      }
+    },
+    "test": {
+      "rows_after_label_filter_and_duplicate_removal": 2737,
+      "dropped_unknown_label": 0,
+      "duplicates_removed": 0,
+      "label_changes": {
+        "S3K3R -> SEKER": 8,
+        "H0R0Z -> HOROZ": 11,
+        "D3RMAS0N -> DERMASON": 15,
+        "horoz -> HOROZ": 10,
+        "cali -> CALI": 7,
+        "seker -> SEKER": 6,
+        "dermason -> DERMASON": 12,
+        "sira -> SIRA": 12,
+        "barbunya -> BARBUNYA": 3,
+        "B0MBAY -> BOMBAY": 5,
+        "bombay -> BOMBAY": 1
+      },
+      "invalid_or_missing_feature_values_after_parsing": {
+        "Perimeter": 146,
+        "Solidity": 121,
+        "Compactness": 92,
+        "Area": 19
+      },
+      "output_file": "dry_bean_clean_test.csv",
+      "rows_final": 2737,
+      "class_counts_final": {
+        "BARBUNYA": 271,
+        "BOMBAY": 111,
+        "CALI": 325,
+        "DERMASON": 691,
+        "HOROZ": 402,
+        "SEKER": 418,
+        "SIRA": 519
+      },
+      "imputed_values": {
+        "Perimeter": 146,
+        "Solidity": 121,
+        "Compactness": 92,
+        "Area": 19
+      }
+    }
+  }
+}

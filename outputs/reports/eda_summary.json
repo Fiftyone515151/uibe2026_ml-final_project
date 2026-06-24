@@ -1,0 +1,218 @@
+{
+  "rows_by_split": {
+    "train": 9503,
+    "val": 1347,
+    "test": 2737
+  },
+  "class_counts_by_split": {
+    "train": {
+      "BARBUNYA": 927,
+      "BOMBAY": 361,
+      "CALI": 1151,
+      "DERMASON": 2503,
+      "HOROZ": 1316,
+      "SEKER": 1408,
+      "SIRA": 1837
+    },
+    "val": {
+      "BARBUNYA": 124,
+      "BOMBAY": 50,
+      "CALI": 154,
+      "DERMASON": 352,
+      "HOROZ": 186,
+      "SEKER": 201,
+      "SIRA": 280
+    },
+    "test": {
+      "BARBUNYA": 271,
+      "BOMBAY": 111,
+      "CALI": 325,
+      "DERMASON": 691,
+      "HOROZ": 402,
+      "SEKER": 418,
+      "SIRA": 519
+    }
+  },
+  "feature_summary_all_splits": {
+    "Area": {
+      "min": 20420.0,
+      "max": 254616.0,
+      "mean": 53012.360492,
+      "median": 44580.0,
+      "std": 29278.070002
+    },
+    "Perimeter": {
+      "min": 524.736,
+      "max": 1985.37,
+      "mean": 852.58909,
+      "median": 793.756,
+      "std": 209.926397
+    },
+    "MajorAxisLength": {
+      "min": 183.601165,
+      "max": 4951.024098,
+      "mean": 325.200491,
+      "median": 296.908488,
+      "std": 150.70423
+    },
+    "MinorAxisLength": {
+      "min": 122.512653,
+      "max": 460.198497,
+      "mean": 202.301849,
+      "median": 192.462725,
+      "std": 44.998938
+    },
+    "AspectRation": {
+      "min": 1.024868,
+      "max": 2.430306,
+      "mean": 1.582487,
+      "median": 1.550788,
+      "std": 0.246195
+    },
+    "Eccentricity": {
+      "min": 0.218951,
+      "max": 0.911423,
+      "mean": 0.750691,
+      "median": 0.764323,
+      "std": 0.091949
+    },
+    "ConvexArea": {
+      "min": 20684.0,
+      "max": 263261.0,
+      "mean": 53767.259218,
+      "median": 45157.0,
+      "std": 29798.724312
+    },
+    "EquivDiameter": {
+      "min": 161.243764,
+      "max": 569.374358,
+      "mean": 253.051149,
+      "median": 238.373938,
+      "std": 59.222414
+    },
+    "Extent": {
+      "min": 0.555315,
+      "max": 0.866195,
+      "mean": 0.749754,
+      "median": 0.759875,
+      "std": 0.049069
+    },
+    "Solidity": {
+      "min": 0.919246,
+      "max": 0.994677,
+      "mean": 0.987197,
+      "median": 0.988272,
+      "std": 0.004557
+    },
+    "roundness": {
+      "min": 0.489618,
+      "max": 0.990685,
+      "mean": 0.873427,
+      "median": 0.883289,
+      "std": 0.059463
+    },
+    "Compactness": {
+      "min": 0.640577,
+      "max": 0.987303,
+      "mean": 0.800031,
+      "median": 0.801324,
+      "std": 0.060853
+    },
+    "ShapeFactor1": {
+      "min": 0.002778,
+      "max": 0.010451,
+      "mean": 0.006563,
+      "median": 0.006644,
+      "std": 0.001129
+    },
+    "ShapeFactor2": {
+      "min": 0.000564,
+      "max": 0.003665,
+      "mean": 0.001717,
+      "median": 0.001696,
+      "std": 0.000596
+    },
+    "ShapeFactor3": {
+      "min": 0.410339,
+      "max": 0.974767,
+      "mean": 0.643853,
+      "median": 0.642157,
+      "std": 0.098876
+    },
+    "ShapeFactor4": {
+      "min": 0.947687,
+      "max": 0.999733,
+      "mean": 0.995069,
+      "median": 0.996389,
+      "std": 0.004358
+    }
+  },
+  "notable_high_correlations_train_abs_ge_0_95": [
+    {
+      "feature_a": "Area",
+      "feature_b": "ConvexArea",
+      "correlation": 0.99994
+    },
+    {
+      "feature_a": "Compactness",
+      "feature_b": "ShapeFactor3",
+      "correlation": 0.987549
+    },
+    {
+      "feature_a": "ConvexArea",
+      "feature_b": "EquivDiameter",
+      "correlation": 0.985197
+    },
+    {
+      "feature_a": "Area",
+      "feature_b": "EquivDiameter",
+      "correlation": 0.984934
+    },
+    {
+      "feature_a": "Eccentricity",
+      "feature_b": "ShapeFactor3",
+      "correlation": -0.981436
+    },
+    {
+      "feature_a": "AspectRation",
+      "feature_b": "ShapeFactor3",
+      "correlation": -0.978703
+    },
+    {
+      "feature_a": "AspectRation",
+      "feature_b": "Compactness",
+      "correlation": -0.976914
+    },
+    {
+      "feature_a": "Perimeter",
+      "feature_b": "EquivDiameter",
+      "correlation": 0.967813
+    },
+    {
+      "feature_a": "Eccentricity",
+      "feature_b": "Compactness",
+      "correlation": -0.960075
+    },
+    {
+      "feature_a": "Area",
+      "feature_b": "MinorAxisLength",
+      "correlation": 0.951749
+    },
+    {
+      "feature_a": "MinorAxisLength",
+      "feature_b": "ConvexArea",
+      "correlation": 0.951502
+    }
+  ],
+  "figures": [
+    "class_distribution_by_split.png",
+    "overall_class_distribution.png",
+    "hist_Area.png",
+    "hist_Perimeter.png",
+    "hist_Solidity.png",
+    "hist_Compactness.png",
+    "train_feature_correlation.png",
+    "raw_data_quality_issues.png",
+    "label_and_duplicate_cleaning.png"
+  ]
+}

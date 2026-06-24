@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dry Bean Classification Project</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #586779;
+      --line: #d8e0e8;
+      --band: #f5f8fb;
+      --teal: #28666e;
+      --violet: #7c3aed;
+      --orange: #d97706;
+      --red: #be123c;
+      --green: #4d7c0f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      background: #fff;
+      line-height: 1.55;
+    }
+
+    header {
+      background: var(--band);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 24px;
+    }
+
+    .topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 22px;
+    }
+
+    .brand {
+      font-size: 15px;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    nav a {
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0 0 12px;
+      font-size: 42px;
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 900px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 8px;
+      padding: 16px;
+      min-height: 96px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    section {
+      border-bottom: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 28px;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      align-items: start;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      background: #fff;
+    }
+
+    .panel ul {
+      margin: 8px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .panel li {
+      margin: 6px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      background: #fff;
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 12px 10px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    th:first-child, td:first-child {
+      text-align: left;
+    }
+
+    th {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .best {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .figure {
+      margin: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .figure figcaption {
+      border-top: 1px solid var(--line);
+      padding: 10px 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .cmd {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+    }
+
+    code {
+      font-family: Menlo, Consolas, monospace;
+      color: var(--ink);
+    }
+
+    pre {
+      margin: 0;
+      padding: 14px 16px;
+      overflow-x: auto;
+      background: #101827;
+      color: #edf3f8;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+
+    pre code {
+      color: #f8fafc;
+      font-weight: 600;
+    }
+
+    .tagrow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 10px;
+      color: var(--muted);
+      font-size: 12px;
+      background: #fff;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 860px) {
+      .stats, .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .topline {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .wrap {
+        padding: 24px 16px;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="topline">
+        <div class="brand">AIT209 机器学习与项目实践 · 期末工程项目</div>
+        <nav aria-label="页面导航">
+          <a href="#data">数据</a>
+          <a href="#cleaning">清洗</a>
+          <a href="#models">算法</a>
+          <a href="#robustness">鲁棒性</a>
+          <a href="#run">复现</a>
+        </nav>
+      </div>
+      <h1>Dry Bean Dataset 多分类机器学习工程</h1>
+      <p class="lead">项目围绕豆类形态特征完成数据分析、数据清洗、特征标准化、多算法训练、基础评估与鲁棒性实验，最终使用统一命令行入口复现实验结果。</p>
+      <div class="stats">
+        <div class="stat"><strong>13,587</strong><span>清洗后总样本数</span></div>
+        <div class="stat"><strong>16</strong><span>数值形态特征</span></div>
+        <div class="stat"><strong>7</strong><span>豆类分类标签</span></div>
+        <div class="stat"><strong>92.36%</strong><span>最佳测试集准确率</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section id="data">
+    <div class="wrap">
+      <h2>数据分析</h2>
+      <div class="grid-2">
+        <div>
+          <p>数据集包含 Area、Perimeter、MajorAxisLength、MinorAxisLength、Eccentricity、Solidity、Compactness 等 16 个数值特征，目标列为 Class，共 7 个豆类类别。</p>
+          <div class="panel">
+            <h3>清洗后样本规模</h3>
+            <table>
+              <thead><tr><th>Split</th><th>Rows</th></tr></thead>
+              <tbody>
+                <tr><td>Train</td><td>9,503</td></tr>
+                <tr><td>Validation</td><td>1,347</td></tr>
+                <tr><td>Test</td><td>2,737</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <figure class="figure">
+          <img src="../outputs/figures/class_distribution_by_split.png" alt="Class distribution by split">
+          <figcaption>训练集、验证集、测试集在 7 个类别上的分布。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="cleaning">
+    <div class="wrap">
+      <h2>数据清洗与特征工程</h2>
+      <div class="grid-3">
+        <div class="panel">
+          <h3>标签规范化</h3>
+          <p>统一大小写、尾部空格和字符替换污染，例如 D3RMAS0N、S3K3R、H0R0Z、B0MBAY。</p>
+        </div>
+        <div class="panel">
+          <h3>数值清洗</h3>
+          <p>将缺失值、非数字、非有限值、负数特征值视为缺失，统一使用训练集 median 填补。</p>
+        </div>
+        <div class="panel">
+          <h3>重复处理</h3>
+          <p>训练集清洗后移除 24 条重复样本，验证集和测试集保持原始评测规模。</p>
+        </div>
+      </div>
+      <div class="grid-2" style="margin-top:22px">
+        <figure class="figure">
+          <img src="../outputs/figures/raw_data_quality_issues.png" alt="Raw data quality issues">
+          <figcaption>原始数据中的缺失、非法数值和负数问题。</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="../outputs/figures/train_feature_correlation.png" alt="Training feature correlation">
+          <figcaption>训练集特征相关性，Area 与 ConvexArea、Compactness 与 ShapeFactor3 等存在高相关。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="models">
+    <div class="wrap">
+      <h2>多算法基础评估</h2>
+      <p>实现 Gaussian Naive Bayes、Nearest Centroid、Softmax Regression 三种多分类算法。所有模型在清洗后的训练集上训练，在独立测试集上评估。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Train Acc</th>
+            <th>Val Acc</th>
+            <th>Test Acc</th>
+            <th>Macro-F1</th>
+            <th>Inference ms/sample</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gaussian Naive Bayes</td>
+            <td>0.8960</td>
+            <td>0.9065</td>
+            <td>0.9028</td>
+            <td>0.9105</td>
+            <td>0.0215</td>
+          </tr>
+          <tr>
+            <td>Nearest Centroid</td>
+            <td>0.8830</td>
+            <td>0.9065</td>
+            <td>0.8981</td>
+            <td>0.9122</td>
+            <td>0.0113</td>
+          </tr>
+          <tr>
+            <td>Softmax Regression</td>
+            <td>0.9168</td>
+            <td>0.9124</td>
+            <td class="best">0.9236</td>
+            <td class="best">0.9353</td>
+            <td class="best">0.0075</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="grid-2" style="margin-top:22px">
+        <figure class="figure">
+          <img src="../outputs/figures/baseline_test_accuracy.png" alt="Baseline test accuracy">
+          <figcaption>三种算法的测试集准确率对比。</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="../outputs/figures/confusion_softmax_regression.png" alt="Softmax confusion matrix">
+          <figcaption>Softmax Regression 在测试集上的混淆矩阵。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="robustness">
+    <div class="wrap">
+      <h2>鲁棒性实验</h2>
+      <p>鲁棒性实验在训练阶段加入噪声，并统一在干净测试集上评估。噪声强度设置为 0.00、0.05、0.10、0.20。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Noise @ 0.20</th>
+            <th>Gaussian NB Drop</th>
+            <th>Nearest Centroid Drop</th>
+            <th>Softmax Drop</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Gaussian feature noise</td><td>0.0066</td><td>0.0015</td><td>-0.0011</td></tr>
+          <tr><td>Feature dropout</td><td>0.0132</td><td>0.0128</td><td>0.0183</td></tr>
+          <tr><td>Label flip</td><td>0.0179</td><td>0.0267</td><td class="best">0.0870</td></tr>
+        </tbody>
+      </table>
+      <div class="grid-2" style="margin-top:22px">
+        <figure class="figure">
+          <img src="../outputs/figures/robustness_accuracy_label_flip.png" alt="Robustness accuracy under label flip">
+          <figcaption>标签翻转噪声下，Softmax Regression 在高强度噪声时下降最明显。</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="../outputs/figures/robustness_accuracy_feature_dropout.png" alt="Robustness accuracy under feature dropout">
+          <figcaption>特征 dropout 下，三个模型都随噪声增强而下降。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="run">
+    <div class="wrap">
+      <h2>工程复现</h2>
+      <div class="grid-2">
+        <div class="panel">
+          <h3>统一命令行入口</h3>
+          <pre><code>python3 src/main.py clean
+python3 src/main.py eda
+python3 src/main.py train
+python3 src/main.py robustness
+python3 src/main.py all</code></pre>
+        </div>
+        <div class="panel">
+          <h3>工程结构</h3>
+          <ul>
+            <li><code>src/</code> 数据清洗、EDA、模型训练、鲁棒性实验</li>
+            <li><code>data/</code> 原始数据与清洗后数据</li>
+            <li><code>outputs/</code> 指标、报告、模型文件和图表</li>
+            <li><code>app/</code> 静态展示页面</li>
+          </ul>
+          <div class="tagrow">
+            <span class="tag">standard library</span>
+            <span class="tag">reproducible CLI</span>
+            <span class="tag">PNG figures</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">Dry Bean Classification Final Project · Generated from local experiment outputs.</div>
+  </footer>
+</body>
+</html>

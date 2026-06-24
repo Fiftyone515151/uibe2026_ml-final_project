@@ -1,0 +1,4 @@
+model,train_accuracy,val_accuracy,test_accuracy,test_macro_f1,train_test_accuracy_gap,train_seconds,test_prediction_seconds,test_per_sample_ms
+gaussian_nb,0.896033,0.906459,0.902813,0.910464,-0.006780,0.017707,0.058836,0.021496
+nearest_centroid,0.882984,0.906459,0.898064,0.912241,-0.015079,0.009614,0.030818,0.011260
+softmax_regression,0.916763,0.912398,0.923639,0.935305,-0.006876,20.039561,0.020611,0.007531
