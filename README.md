@@ -104,12 +104,3 @@ final_project/
 - `app/index.html`
 
 说明：图表文件可通过运行 `python3 src/main.py eda`、`python3 src/main.py train` 和 `python3 src/main.py robustness` 在本地生成。当前仓库未上传 `outputs/figures/` 和 `paper/` 文件夹。
-
-## 关于 GitHub README 展示页面
-
-GitHub README 不能直接嵌入并渲染 `app/index.html` 这个完整网页。可行方式有两种：
-
-1. 使用 GitHub Pages 部署 `app/index.html`，然后在 README 中放访问链接。
-2. 上传一张网页截图或 GIF，并在 README 中用图片形式展示页面效果。
-
-如果需要完整展示页面中的图表，必须同时上传页面引用的图片资源，或者重新调整页面资源路径。
